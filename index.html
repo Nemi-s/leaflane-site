@@ -72,27 +72,47 @@ figcaption{padding:16px 20px;font-size:.92rem}.tag{font:600 .7rem Inter;color:va
 .card:before{content:"";display:block;width:34px;height:34px;margin-bottom:12px;background:var(--olive);opacity:.8;border-radius:0 60% 0 60%}
 .note{background:#fffaf2;border:1.5px dashed var(--olive);padding:24px 28px;border-radius:24px}
 footer{background:var(--ink);color:#d9c9b0;padding:32px 0;font-size:.85rem}
+figure video,figure .still{width:100%;height:auto;display:block;background:#efe6d6;aspect-ratio:16/9;object-fit:cover}
+.band{padding:52px 0 12px}.clip{margin:0 0 8px}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .85s ease,transform .85s ease}
+.reveal.in{opacity:1;transform:none}
+.still{display:none}
+@media (prefers-reduced-motion:reduce){
+.reveal{opacity:1;transform:none;transition:none}
+.js-play-inview{display:none}
+.still{display:block}
+}
 </style></head><body>
 <header><div class="w"><div class="k">Leaflane Packaging · Gujarat, India</div>
 <h1>Compostable PHA/PLA packaging for Indian D2C brands</h1>
 <p style="max-width:620px;opacity:.9">We are building compostable PHA/PLA jars, caps, tubes, tea-tin liners and pouches for Indian D2C brands in beauty, tea and food, made in Gujarat with small pilot runs.</p>
 <a class="btn p" href="#pilot">Join the pilot</a><a class="btn o" href="#contact">Contact us</a></div></header>
-<section><div class="w"><div class="k">What we make</div><h2>Compostable formats for D2C brands</h2>
+<div class="band"><div class="w reveal"><figure class="clip">
+<video class="js-play-inview" muted playsinline preload="metadata" poster="assets/clips/hero-poster.jpg" width="1920" height="1080" title="Concept render of a leaf becoming a compostable jar"><source src="assets/clips/hero-leaf-to-jar.mp4" type="video/mp4"></video>
+<img class="still" src="assets/clips/hero-still.jpg" width="1920" height="1080" alt="Concept render of a cream compostable jar with cap">
+<figcaption><span class="tag">Concept render</span><br>A leaf becomes a compostable jar.</figcaption>
+</figure></div></div>
+<section><div class="w reveal"><div class="k">What we make</div><h2>Compostable formats for D2C brands</h2>
+<figure class="clip reveal">
+<video class="js-play-inview" muted playsinline preload="metadata" poster="assets/clips/formats-poster.jpg" width="1920" height="1080" title="Concept render of a jar, tea-tin liner and pouch taking shape"><source src="assets/clips/formats-jar-tin-pouch.mp4" type="video/mp4"></video>
+<img class="still" src="assets/clips/formats-still.jpg" width="1920" height="1080" alt="Concept render of a cream jar, sage tea tin with liner, and kraft pouch">
+<figcaption><span class="tag">Concept render</span><br>A jar, tea-tin liner and pouch taking shape.</figcaption>
+</figure>
 <div class="grid"><figure><picture><source srcset="assets/jars-caps.webp" type="image/webp"><img src="assets/jars-caps.jpg" width="1280" height="720" alt="Concept render of compostable jars, caps, tube and dropper" loading="lazy"></picture><figcaption><span class="tag">Concept render</span><br>Jars, caps, tubes and droppers for skincare and personal care.</figcaption></figure>
 <figure><picture><source srcset="assets/tea-liner-pouch.webp" type="image/webp"><img src="assets/tea-liner-pouch.jpg" width="1280" height="720" alt="Concept render of tea-tin liner and pouch" loading="lazy"></picture><figcaption><span class="tag">Concept render</span><br>Tea-tin liners and pouches for tea, spice and snack brands.</figcaption></figure></div>
-<p style="font-size:.85rem;opacity:.7">The images are concept renders, not photos of finished products. Samples will follow our first production trials.</p></div></section>
-<section><div class="w"><div class="k">Why compostable</div><h2>A better end of life, and simpler EPR</h2>
+<p style="font-size:.85rem;opacity:.7">The images and short films are concept renders, not photos of finished products. Samples will follow our first production trials.</p></div></section>
+<section><div class="w reveal"><div class="k">Why compostable</div><h2>A better end of life, and simpler EPR</h2>
 <div class="grid"><div class="card"><b>Plant-based materials</b><p>PHA and PLA are bio-based polymers that can break down under the right composting conditions. They do not leave behind persistent plastic.</p></div>
 <div class="card"><b>EPR-ready thinking</b><p>India's Plastic Waste Management Rules put Extended Producer Responsibility on brand owners. Certified compostable packaging is treated as its own category. We will help you document it.</p></div>
 <div class="card"><b>A story your customers can see</b><p>Packaging that matches your ingredients story, with natural colours, printing, foiling or labels.</p></div></div>
 <p style="font-size:.85rem;opacity:.7">Any compostability claim will depend on CPCB certification and the composting conditions that apply. We will not make claims before certification.</p></div></section>
-<section id="pilot"><div class="w"><div class="k">Pilot program</div><h2>Small runs, co-designed with you</h2>
+<section id="pilot"><div class="w reveal"><div class="k">Pilot program</div><h2>Small runs, co-designed with you</h2>
 <div class="grid"><div class="card"><b>2,000–5,000 units per SKU</b><p>Pilot quantities sized for D2C launches, far below typical overseas MOQs.</p></div>
 <div class="card"><b>Co-design included</b><p>We work with you on shape, colour and finish to fit your brand.</p></div>
 <div class="card"><b>Made in Gujarat</b><p>Local production means shorter lead times and easy factory visits.</p></div></div></div></section>
-<section><div class="w"><div class="k">Where we are</div><h2>An honest note</h2>
+<section><div class="w reveal"><div class="k">Where we are</div><h2>An honest note</h2>
 <div class="note"><p>Leaflane is at the pre-production stage. We do not have finished samples, CPCB certification or clients yet. We are looking for a small group of early-partner brands to help shape our first production run. If that sounds like you, we would like to talk.</p></div></div></section>
-<section id="contact"><div class="w"><div class="k">Contact</div><h2>Talk to Nemi, Founder</h2>
+<section id="contact"><div class="w reveal"><div class="k">Contact</div><h2>Talk to Nemi, Founder</h2>
 <p>Ahmedabad, Gujarat</p>
 <a class="btn p" href="https://wa.me/919769700512?text=Hi%20Leaflane%2C%20I%27d%20like%20to%20know%20about%20your%20pilot">WhatsApp +91 97697 00512</a>
 <a class="btn d" href="tel:+918424099044">Call +91 84240 99044</a>
@@ -100,4 +120,35 @@ footer{background:var(--ink);color:#d9c9b0;padding:32px 0;font-size:.85rem}
 <a class="btn d" href="mailto:leaflanepackaging@gmail.com">Email: leaflanepackaging@gmail.com</a>
 </div></section>
 <footer><div class="w">© 2026 Leaflane Packaging (Thrifto INDIA) · Ahmedabad, Gujarat</div></footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var els = document.querySelectorAll(".reveal");
+  if (reduce || !("IntersectionObserver" in window)) {
+    for (var i=0;i<els.length;i++) els[i].classList.add("in");
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      for (var i=0;i<entries.length;i++) if (entries[i].isIntersecting) entries[i].target.classList.add("in");
+    }, {threshold:0.12, rootMargin:"0px 0px -8% 0px"});
+    for (var j=0;j<els.length;j++) io.observe(els[j]);
+  }
+  if (reduce) return;
+  var videos = document.querySelectorAll(".js-play-inview");
+  var vio = new IntersectionObserver(function(entries){
+    for (var i=0;i<entries.length;i++) {
+      var v = entries[i].target;
+      if (entries[i].isIntersecting) {
+        try { v.currentTime = 0; } catch (e) {}
+        var p = v.play();
+        if (p && p.catch) p.catch(function(){ v.controls = true; });
+      } else {
+        v.pause();
+      }
+    }
+  }, {threshold:0.45});
+  for (var k=0;k<videos.length;k++) vio.observe(videos[k]);
+})();
+</script>
+
 </body></html>
