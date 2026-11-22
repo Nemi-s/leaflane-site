@@ -72,29 +72,32 @@ figcaption{padding:16px 20px;font-size:.92rem}.tag{font:600 .7rem Inter;color:va
 .card:before{content:"";display:block;width:34px;height:34px;margin-bottom:12px;background:var(--olive);opacity:.8;border-radius:0 60% 0 60%}
 .note{background:#fffaf2;border:1.5px dashed var(--olive);padding:24px 28px;border-radius:24px}
 footer{background:var(--ink);color:#d9c9b0;padding:32px 0;font-size:.85rem}
-figure video,figure .still{width:100%;height:auto;display:block;background:#efe6d6;aspect-ratio:16/9;object-fit:cover}
+figure video,figure .still{width:100%;height:auto;background:#efe6d6;aspect-ratio:16/9;object-fit:cover}
+figure video{display:block}
+figure .still,img.still{display:none}
 .band{padding:52px 0 12px}.clip{margin:0 0 8px}
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .85s ease,transform .85s ease}
 .reveal.in{opacity:1;transform:none}
-.still{display:none}
 @media (prefers-reduced-motion:reduce){
 .reveal{opacity:1;transform:none;transition:none}
-.js-play-inview{display:none}
-.still{display:block}
+figure video.js-play-inview,figure.clip video{display:none}
+figure .still,img.still{display:block}
 }
+figure.is-fallback video{display:none}
+figure.is-fallback .still,figure.is-fallback img.still{display:block}
 </style></head><body>
 <header><div class="w"><div class="k">Leaflane Packaging · Gujarat, India</div>
 <h1>Compostable PHA/PLA packaging for Indian D2C brands</h1>
 <p style="max-width:620px;opacity:.9">We are building compostable PHA/PLA jars, caps, tubes, tea-tin liners and pouches for Indian D2C brands in beauty, tea and food, made in Gujarat with small pilot runs.</p>
 <a class="btn p" href="#pilot">Join the pilot</a><a class="btn o" href="#contact">Contact us</a></div></header>
 <div class="band"><div class="w reveal"><figure class="clip">
-<video class="js-play-inview" muted playsinline preload="metadata" poster="assets/clips/hero-poster.jpg" width="1920" height="1080" title="Concept render of a leaf becoming a compostable jar"><source src="assets/clips/hero-leaf-to-jar.mp4" type="video/mp4"></video>
+<video class="js-play-inview" muted playsinline webkit-playsinline preload="metadata" poster="assets/clips/hero-poster.jpg" width="1920" height="1080" title="Concept render of a leaf becoming a compostable jar"><source src="assets/clips/hero-leaf-to-jar.mp4" type="video/mp4"></video>
 <img class="still" src="assets/clips/hero-still.jpg" width="1920" height="1080" alt="Concept render of a cream compostable jar with cap">
 <figcaption><span class="tag">Concept render</span><br>A leaf becomes a compostable jar.</figcaption>
 </figure></div></div>
 <section><div class="w reveal"><div class="k">What we make</div><h2>Compostable formats for D2C brands</h2>
 <figure class="clip reveal">
-<video class="js-play-inview" muted playsinline preload="metadata" poster="assets/clips/formats-poster.jpg" width="1920" height="1080" title="Concept render of a jar, tea-tin liner and pouch taking shape"><source src="assets/clips/formats-jar-tin-pouch.mp4" type="video/mp4"></video>
+<video class="js-play-inview" muted playsinline webkit-playsinline preload="metadata" poster="assets/clips/formats-poster.jpg" width="1920" height="1080" title="Concept render of a jar, tea-tin liner and pouch taking shape"><source src="assets/clips/formats-jar-tin-pouch.mp4" type="video/mp4"></video>
 <img class="still" src="assets/clips/formats-still.jpg" width="1920" height="1080" alt="Concept render of a cream jar, sage tea tin with liner, and kraft pouch">
 <figcaption><span class="tag">Concept render</span><br>A jar, tea-tin liner and pouch taking shape.</figcaption>
 </figure>
@@ -113,7 +116,7 @@ figure video,figure .still{width:100%;height:auto;display:block;background:#efe6
 <section><div class="w reveal"><div class="k">Where we are</div><h2>An honest note</h2>
 <div class="note"><p>Leaflane is at the pre-production stage. We do not have finished samples, CPCB certification or clients yet. We are looking for a small group of early-partner brands to help shape our first production run. If that sounds like you, we would like to talk.</p></div></div></section>
 <div class="band"><div class="w reveal"><figure class="clip">
-<video class="js-play-inview" muted playsinline preload="metadata" poster="assets/clips/eol-poster.jpg" width="1920" height="1080" title="Concept render of a compostable jar crumbling into soil"><source src="assets/clips/eol-jar-to-soil.mp4" type="video/mp4"></video>
+<video class="js-play-inview" muted playsinline webkit-playsinline preload="metadata" poster="assets/clips/eol-poster.jpg" width="1920" height="1080" title="Concept render of a compostable jar crumbling into soil"><source src="assets/clips/eol-jar-to-soil.mp4" type="video/mp4"></video>
 <img class="still" src="assets/clips/eol-still.jpg" width="1920" height="1080" alt="Concept render of a seedling sprouting from soil">
 <figcaption><span class="tag">Concept render</span><br>A compostable jar returns to soil.</figcaption>
 </figure></div></div>
@@ -138,21 +141,46 @@ figure video,figure .still{width:100%;height:auto;display:block;background:#efe6
     }, {threshold:0.12, rootMargin:"0px 0px -8% 0px"});
     for (var j=0;j<els.length;j++) io.observe(els[j]);
   }
+  var videos = document.querySelectorAll("figure.clip video.js-play-inview");
+  function showStill(v){
+    var fig = v.closest("figure");
+    if (fig) fig.classList.add("is-fallback");
+  }
+  function arm(v){
+    v.muted = true;
+    v.defaultMuted = true;
+    v.playsInline = true;
+    v.setAttribute("muted", "");
+    v.setAttribute("playsinline", "");
+    v.setAttribute("webkit-playsinline", "");
+    v.addEventListener("error", function(){ showStill(v); });
+    var src = v.querySelector("source");
+    if (src) src.addEventListener("error", function(){ showStill(v); });
+  }
+  for (var k=0;k<videos.length;k++) arm(videos[k]);
   if (reduce) return;
-  var videos = document.querySelectorAll(".js-play-inview");
+  function tryPlay(v){
+    v.muted = true;
+    v.playsInline = true;
+    var p = v.play();
+    if (p && p.catch) p.catch(function(){});
+  }
+  if (!("IntersectionObserver" in window)) {
+    for (var n=0;n<videos.length;n++) tryPlay(videos[n]);
+    return;
+  }
   var vio = new IntersectionObserver(function(entries){
     for (var i=0;i<entries.length;i++) {
       var v = entries[i].target;
       if (entries[i].isIntersecting) {
         try { v.currentTime = 0; } catch (e) {}
-        var p = v.play();
-        if (p && p.catch) p.catch(function(){ v.controls = true; });
+        tryPlay(v);
       } else {
         v.pause();
       }
     }
-  }, {threshold:0.45});
-  for (var k=0;k<videos.length;k++) vio.observe(videos[k]);
+  }, {threshold:0.3});
+  for (var m=0;m<videos.length;m++) vio.observe(videos[m]);
 })();
 </script>
 
