@@ -78,9 +78,8 @@ figcaption{padding:16px 20px;font-size:.92rem;color:var(--ink)}.tag{font:600 .7r
 .nav a:hover{border-bottom-color:#fff7ec}
 footer{background:var(--ink);color:#d9c9b0;padding:32px 0;font-size:.85rem}
 figure video,figure .still{width:100%;height:auto;background:#efe6d6;aspect-ratio:16/9;object-fit:cover}
-figure video{display:none}
-figure.clip.is-video video{display:block}
-figure.clip.is-video .still{display:none}
+figure video{display:block}
+figure .still{display:none}
 .band{padding:52px 0 12px}.clip{margin:0 0 8px}
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .85s ease,transform .85s ease}
 .reveal.in{opacity:1;transform:none}
@@ -106,11 +105,11 @@ figure.clip.is-video .still{display:none}
 .later{margin-top:22px}
 @media (prefers-reduced-motion:reduce){
 .reveal{opacity:1;transform:none;transition:none}
+figure video.js-play-inview,figure.clip video{display:none}
+figure .still,img.still{display:block}
 }
-@media (max-width:700px){
-figure.clip.is-video video,figure.clip video{display:none}
-figure.clip.is-video .still,figure.clip .still,figure .still{display:block}
-}
+figure.is-fallback video{display:none}
+figure.is-fallback .still,figure.is-fallback img.still{display:block}
 </style></head><body>
 <header><div class="w"><div class="k">Leaflane Packaging · Gujarat, India</div>
 <nav class="nav" aria-label="Page"><a href="#formats">Formats</a><a href="#specs">Specs</a><a href="#faq">FAQ</a><a href="#enquire">Enquire</a></nav>
@@ -120,7 +119,10 @@ figure.clip.is-video .still,figure.clip .still,figure .still{display:block}
 <div class="band"><div class="w reveal"><figure class="clip visual" data-visual="concept" data-slot="hero">
 <!-- Swap the still and film for a real sample photo or film, then set data-visual="photo" and change the tag to "Sample photo". -->
 <img class="still" src="assets/clips/hero-still.jpg" width="1280" height="720" alt="Concept render of a cream compostable jar with cap" fetchpriority="high">
-<video class="js-play-inview" muted playsinline webkit-playsinline preload="none" width="1280" height="720" data-src="assets/clips/hero-leaf-to-jar.mp4" title="Concept render of a leaf becoming a compostable jar"></video>
+<video class="js-play-inview" muted autoplay loop playsinline webkit-playsinline preload="metadata" poster="assets/clips/hero-poster.jpg" width="1280" height="720" data-src="assets/clips/hero-leaf-to-jar.mp4" data-src-mobile="assets/clips/hero-leaf-to-jar-mobile.mp4" title="Concept render of a leaf becoming a compostable jar">
+<source src="assets/clips/hero-leaf-to-jar-mobile.mp4" type="video/mp4" media="(max-width: 700px)">
+<source src="assets/clips/hero-leaf-to-jar.mp4" type="video/mp4">
+</video>
 <figcaption><span class="tag">Concept render</span><br>A leaf becomes a compostable jar.</figcaption>
 </figure></div></div>
 <section id="formats"><div class="w reveal"><div class="k">What we make</div><h2>Three formats we are building first</h2>
@@ -128,7 +130,10 @@ figure.clip.is-video .still,figure.clip .still,figure .still{display:block}
 <figure class="clip visual reveal" data-visual="concept" data-slot="formats-film">
 <!-- Swap for a real sample film or photo; set data-visual="photo" and the tag to "Sample photo". -->
 <img class="still" src="assets/clips/formats-still.jpg" width="1280" height="720" alt="Concept render of a cream jar, sage tea tin with liner, and kraft pouch" loading="lazy">
-<video class="js-play-inview" muted playsinline webkit-playsinline preload="none" width="1280" height="720" data-src="assets/clips/formats-jar-tin-pouch.mp4" title="Concept render of a jar, tea-tin liner and pouch taking shape"></video>
+<video class="js-play-inview" muted autoplay loop playsinline webkit-playsinline preload="none" poster="assets/clips/formats-poster.jpg" width="1280" height="720" data-src="assets/clips/formats-jar-tin-pouch.mp4" data-src-mobile="assets/clips/formats-jar-tin-pouch-mobile.mp4" title="Concept render of a jar, tea-tin liner and pouch taking shape">
+<source src="assets/clips/formats-jar-tin-pouch-mobile.mp4" type="video/mp4" media="(max-width: 700px)">
+<source src="assets/clips/formats-jar-tin-pouch.mp4" type="video/mp4">
+</video>
 <figcaption><span class="tag">Concept render</span><br>A jar and a pouch taking shape, with other formats shown for context.</figcaption>
 </figure>
 <div class="grid">
@@ -208,7 +213,10 @@ figure.clip.is-video .still,figure.clip .still,figure .still{display:block}
 <div class="band"><div class="w reveal"><figure class="clip visual" data-visual="concept" data-slot="end-of-life">
 <!-- Swap for a real end-of-life or sample photo; set data-visual="photo" and the tag to "Sample photo". -->
 <img class="still" src="assets/clips/eol-still.jpg" width="1280" height="720" alt="Concept render of a seedling sprouting from soil" loading="lazy">
-<video class="js-play-inview" muted playsinline webkit-playsinline preload="none" width="1280" height="720" data-src="assets/clips/eol-jar-to-soil.mp4" title="Concept render of a compostable jar crumbling into soil"></video>
+<video class="js-play-inview" muted autoplay loop playsinline webkit-playsinline preload="none" poster="assets/clips/eol-poster.jpg" width="1280" height="720" data-src="assets/clips/eol-jar-to-soil.mp4" data-src-mobile="assets/clips/eol-jar-to-soil-mobile.mp4" title="Concept render of a compostable jar crumbling into soil">
+<source src="assets/clips/eol-jar-to-soil-mobile.mp4" type="video/mp4" media="(max-width: 700px)">
+<source src="assets/clips/eol-jar-to-soil.mp4" type="video/mp4">
+</video>
 <figcaption><span class="tag">Concept render</span><br>A concept of how a certified pack could return to soil, after testing and certification are complete.</figcaption>
 </figure></div></div>
 <section id="enquire"><div class="w reveal"><div class="k">Enquire</div><h2>Tell us what you need</h2>
@@ -269,11 +277,6 @@ figure.clip.is-video .still,figure.clip .still,figure .still{display:block}
 (function(){
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var mobile = window.matchMedia("(max-width: 700px)").matches;
-  var saveData = false;
-  try {
-    var conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-    if (conn && (conn.saveData || /^(slow-2g|2g)$/.test(conn.effectiveType || ""))) saveData = true;
-  } catch (e) {}
   var els = document.querySelectorAll(".reveal");
   if (reduce || !("IntersectionObserver" in window)) {
     for (var i=0;i<els.length;i++) els[i].classList.add("in");
@@ -287,52 +290,59 @@ figure.clip.is-video .still,figure.clip .still,figure .still{display:block}
   var videos = document.querySelectorAll("figure.clip video.js-play-inview");
   function showStill(v){
     var fig = v.closest("figure");
-    if (fig) fig.classList.remove("is-video");
+    if (fig) fig.classList.add("is-fallback");
   }
-  function useVideo(){
-    return !reduce && !mobile && !saveData;
-  }
-  if (!useVideo()) {
-    return;
-  }
-  function arm(v){
-    v.muted = true;
-    v.defaultMuted = true;
-    v.playsInline = true;
-    v.setAttribute("muted", "");
-    v.setAttribute("playsinline", "");
-    v.setAttribute("webkit-playsinline", "");
-    v.addEventListener("error", function(){ showStill(v); });
+  function chosenSrc(v){
+    var mobileSrc = v.getAttribute("data-src-mobile");
+    if (mobile && mobileSrc) return mobileSrc;
+    return v.getAttribute("data-src");
   }
   function loadSrc(v){
     if (v.getAttribute("data-loaded") === "1") return;
-    var src = v.getAttribute("data-src");
+    var src = chosenSrc(v);
     if (!src) return;
+    var sources = v.querySelectorAll("source");
+    for (var i=0;i<sources.length;i++) sources[i].parentNode.removeChild(sources[i]);
     var source = document.createElement("source");
     source.src = src;
     source.type = "video/mp4";
     source.addEventListener("error", function(){ showStill(v); });
     v.appendChild(source);
-    v.load();
+    try { v.load(); } catch (e) {}
     v.setAttribute("data-loaded", "1");
   }
+  function arm(v){
+    v.muted = true;
+    v.defaultMuted = true;
+    v.playsInline = true;
+    v.loop = true;
+    v.autoplay = true;
+    v.setAttribute("muted", "");
+    v.setAttribute("playsinline", "");
+    v.setAttribute("webkit-playsinline", "");
+    v.setAttribute("loop", "");
+    v.setAttribute("autoplay", "");
+    v.addEventListener("error", function(){ showStill(v); });
+  }
   function tryPlay(v){
-    var fig = v.closest("figure");
     loadSrc(v);
-    if (fig) fig.classList.add("is-video");
     v.muted = true;
     v.playsInline = true;
+    v.loop = true;
     var p = v.play();
-    if (p && p.catch) p.catch(function(){ showStill(v); });
+    if (p && p.catch) p.catch(function(){});
   }
   for (var k=0;k<videos.length;k++) arm(videos[k]);
+  if (reduce) return;
   if (!("IntersectionObserver" in window)) {
     for (var n=0;n<videos.length;n++) tryPlay(videos[n]);
     return;
   }
   var vio = new IntersectionObserver(function(entries){
     for (var i=0;i<entries.length;i++) {
-      var v = entries[i].target;
+      var fig = entries[i].target;
+      var v = fig.querySelector("video.js-play-inview");
+      if (!v) continue;
       if (entries[i].isIntersecting) {
         try { if (v.readyState > 0) v.currentTime = 0; } catch (e) {}
         tryPlay(v);
@@ -340,8 +350,11 @@ figure.clip.is-video .still,figure.clip .still,figure .still{display:block}
         v.pause();
       }
     }
-  }, {threshold:0.3, rootMargin:"200px 0px"});
-  for (var m=0;m<videos.length;m++) vio.observe(videos[m]);
+  }, {threshold:0.25, rootMargin:"80px 0px"});
+  for (var m=0;m<videos.length;m++) {
+    var fig = videos[m].closest("figure") || videos[m];
+    vio.observe(fig);
+  }
 })();
 
 (function(){
